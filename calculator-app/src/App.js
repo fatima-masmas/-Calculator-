@@ -21,7 +21,7 @@ function App() {
           <ButtonBox>
             {btnValues.flat().map((btn, i) =>(
               <Button 
-              vlaue={btn}
+              value={btn}
               key={i}/>
             ))}
           </ButtonBox>
