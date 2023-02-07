@@ -73,7 +73,16 @@ const Button = ({value}) => {
             })
         }
      
+    }
 
+    // use persenClick
+
+    const persenClick = ()=> {
+        setCalc({
+            num: (calc.num / 100),
+            res: (calc.res / 100),
+            sign: ''
+        })
     }
     const handleBtnClick = () => {
         const results = {
@@ -83,7 +92,8 @@ const Button = ({value}) => {
             'X': signClick,
             '-': signClick,
             '+': signClick,
-            '=': equalClick
+            '=': equalClick,
+            '%': persenClick
         }
         if(results[value]){
             return results[value]()    
