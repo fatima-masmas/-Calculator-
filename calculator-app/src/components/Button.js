@@ -8,6 +8,7 @@ const getStyleName = btn => {
         '+': 'opt',
         '-': 'opt',
         '/': 'opt',
+        
     }
     return className[btn]
 }
@@ -77,10 +78,18 @@ const Button = ({value}) => {
 
     // use persenClick
 
-    const persenClick = ()=> {
+    const persenClick = () => {
         setCalc({
             num: (calc.num / 100),
             res: (calc.res / 100),
+            sign: ''
+        })
+    }
+    // use click invert btn 
+    const invertClick = () => {
+        setCalc({
+            num: calc.num ? calc.umn * -1 :0,
+            res: calc.res ? calc.res * -1 :0,
             sign: ''
         })
     }
@@ -93,7 +102,8 @@ const Button = ({value}) => {
             '-': signClick,
             '+': signClick,
             '=': equalClick,
-            '%': persenClick
+            '%': persenClick,
+            '+-': invertClick
         }
         if(results[value]){
             return results[value]()    
