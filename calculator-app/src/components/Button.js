@@ -1,5 +1,6 @@
 
 const getStyleName = btn => {
+  
     const className = {
         '=': 'equals',
         'X': 'opt',
@@ -10,8 +11,11 @@ const getStyleName = btn => {
     return className[btn]
 }
 const Button = ({vlaue}) => {
+    const handleBtnClick = () =>{
+        console.log(vlaue);
+    }
     return (
-        <button className={`${getStyleName(vlaue)} button`}>{vlaue}</button>
+        <button onClick={handleBtnClick} className={`${getStyleName(vlaue)} button`}>{vlaue}</button>
     )
 }
 
