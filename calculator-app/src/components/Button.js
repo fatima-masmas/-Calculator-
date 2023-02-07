@@ -45,10 +45,23 @@ const Button = ({value}) => {
             num: numberValue
         })
     }
+    // use click operationen 
+    const signClick = () => {
+        setCalc({
+            sing: value,
+            res: !calc.res && calc.num ? calc.num : calc.res,
+            num: 0
+        })
+    }
     const handleBtnClick = () => {
         const result = {
             '.': commaClick,
-            'C': restClick
+            'C': restClick, 
+            '/': signClick,
+            'X': signClick,
+            '-': signClick,
+            '+': signClick,
+           
         }
         if(result[value]){
             return result[value]()    
