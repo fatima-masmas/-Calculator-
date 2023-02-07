@@ -53,18 +53,40 @@ const Button = ({value}) => {
             num: 0
         })
     }
+        
+    // use click equal
+    const equalClick = () => {
+        if(calc.res && calc.num){
+            const math = (a, b, sign) => {
+                const result = {
+                    '+':  (a, b) => a + b,
+                    '-':  (a, b) => a - b,
+                    'X':  (a, b) => a * b,
+                    '/':  (a, b) => a / b
+                }
+                return result[sign](a, b);
+            }
+            setCalc({
+                res: math(calc.res, calc.num, calc.sing),
+                sing: '',
+                num: 0  
+            })
+        }
+     
+
+    }
     const handleBtnClick = () => {
-        const result = {
+        const results = {
             '.': commaClick,
             'C': restClick, 
             '/': signClick,
             'X': signClick,
             '-': signClick,
             '+': signClick,
-           
+            '=': equalClick
         }
-        if(result[value]){
-            return result[value]()    
+        if(results[value]){
+            return results[value]()    
         } else {
             return handleClickButton()
         }
